@@ -2,19 +2,28 @@ import { useState } from "react";
 import { useRouter } from "expo-router";
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from "react-native";
 
-export default function Login() {
+export default function Register() {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
 
-  const handleLogin = () => {
-    console.log("Logged in with:", { email, password });
-    router.push("/"); // Redirect to Home screen
+  const handleRegister = () => {
+    console.log("Registered with:", { name, email, password });
+    router.push("/login"); // Redirect to Login screen after registration
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Login</Text>
+      <Text style={styles.title}>Register</Text>
+
+      <TextInput
+        style={styles.input}
+        placeholder="Name"
+        value={name}
+        onChangeText={setName}
+        autoCapitalize="words"
+      />
 
       <TextInput
         style={styles.input}
@@ -33,12 +42,12 @@ export default function Login() {
         onChangeText={setPassword}
       />
 
-      <TouchableOpacity style={styles.button} onPress={handleLogin}>
-        <Text style={styles.buttonText}>Login</Text>
+      <TouchableOpacity style={styles.button} onPress={handleRegister}>
+        <Text style={styles.buttonText}>Register</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => router.push("/register")}>
-        <Text style={styles.linkText}>Don't have an account? Register</Text>
+      <TouchableOpacity onPress={() => router.push("/login")}>
+        <Text style={styles.linkText}>Already have an account? Login</Text>
       </TouchableOpacity>
     </View>
   );
@@ -50,7 +59,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     padding: 40,
-    backgroundColor: "#ADD8E6",
+    backgroundColor: "#CE9DD9",
   },
   title: {
     fontSize: 26,
@@ -70,7 +79,9 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   button: {
-    backgroundColor: "#000000", // Changed to black
+    backgroundColor: "black",
+
+    borderWidth: 2, // Added border width
     paddingVertical: 12,
     borderRadius: 8,
     width: "100%",

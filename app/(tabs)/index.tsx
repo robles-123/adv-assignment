@@ -6,7 +6,7 @@ export default function Home() {
     return (
         <View style={styles.container}>
             <Text style={styles.text}>
-            Joshua B. Robles
+                Joshua Robles
             </Text>
         </View>
     )
@@ -27,9 +27,9 @@ const styles = StyleSheet.create({
     },
     container: {
         flex: 1,
-         justifyContent: 'center',
-         alignItems: 'center',
-        backgroundColor: 'violet',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#CE9DD9',
     },
     child1: {
         flex: 5,
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'blue',
     },
     text: {
-        color: 'BLACK',
+        color: 'black',
         fontSize: 34
     }
 })
